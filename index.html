@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LoveDove 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom right, #ffcce6, #ffe6f2);
+      overflow-x: hidden;
+      text-align: center;
+      color: #d63384;
+    }
+
+    h1 {
+      margin-top: 50px;
+      font-size: 3em;
+    }
+
+    p {
+      font-size: 1.3em;
+      margin: 20px;
+    }
+
+    .surprise-btn {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .surprise-btn:hover {
+      background-color: #e60073;
+    }
+
+    .message-box {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.5em;
+      background-color: #fff0f5;
+      padding: 20px;
+      border-radius: 15px;
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 15px pink;
+    }
+
+    /* Falling hearts */
+    .heart {
+      position: fixed;
+      color: red;
+      font-size: 20px;
+      animation: fall 6s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>LoveDove 💖</h1>
+  <p>For the most beautiful girl in my world 🌎</p>
+
+  <button class="surprise-btn" onclick="showMessage()">Click for a Surprise 🎁</button>
+
+  <div class="message-box" id="messageBox">
+    You are the reason I smile every day.  
+    <br><br>
+    I made this just for you to show how much I love you.  
+    <br><br>
+    ❤️ Forever yours ❤️
+  </div>
+
+  <script>
+    function showMessage() {
+      const box = document.getElementById("messageBox");
+      box.style.display = box.style.display === "none" ? "block" : "none";
+    }
+
+    // Falling hearts generator
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 10 + 15 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 7000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
